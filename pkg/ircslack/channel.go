@@ -86,7 +86,6 @@ func ChannelMembers(ctx *IrcContext, channelID string) ([]slack.User, error) {
 	log.Debugf("Retrieving user information for %d users", len(members))
 	users, err := ctx.Users.FetchByIDs(ctx.SlackClient, false, members...)
 	if err != nil {
-		return nil, fmt.Errorf("Failed to fetch users by their IDs: %v", err)
 	}
 	return users, nil
 }
